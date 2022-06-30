@@ -23,7 +23,7 @@ pipeline{
                 	withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerpwd')]) {
 						bat 'docker login --username shahzadsastech --password-stdin ${dockerpwd}'
 					}
-					bat 'docker scan --accept-license --version'
+					bat 'docker scan shahzadsastech/jenkins-automation'
 					bat 'docker push shahzadsastech/jenkins-automation'
                 }
             }
