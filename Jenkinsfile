@@ -21,7 +21,7 @@ pipeline{
             steps {
 				script{                
                 	withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerpwd')]) {
-						bat 'docker login -u shahzadsastech --password-stdin ${dockerpwd}'
+						bat 'docker login --username shahzadsastech --password-stdin ${dockerpwd}'
 					}
 					bat 'docker push shahzadsastech/jenkins-automation'
                 }
