@@ -10,10 +10,20 @@ pipeline{
                 bat 'mvn clean install'
             }
         }
-         stage('Build Docker Image') {
+        stage('Build Docker Image') {
             steps {
 				script{                
                 	bat 'docker build -t shahzadsastech/jenkins-automation .'
+                }
+            }
+        }
+        stage('Push image to docker hub') {
+            steps {
+				script{                
+                	withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+						bat 'docker login -u shahzadsastech -p ${dockerhubpwd}'
+					}
+					bat 'docker push shahzadsastech/jenkins-automation'
                 }
             }
         }
