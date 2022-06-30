@@ -24,7 +24,7 @@ pipeline{
 						bat 'docker login --username shahzadsastech --password-stdin ${dockerpwd}'
 					}
 					bat 'docker scan shahzadsastech/jenkins-automation'
-					bat 'docker push shahzadsastech/jenkins-automation'
+					bat 'docker push shahzadsastech-jenkins-automation'
                 }
             }
         }
