@@ -13,7 +13,7 @@ pipeline{
         stage('Build Docker Image') {
             steps {
 				script{                
-                	bat 'docker build -t shahzadsastech/jenkins-automation -f Dockerfile .'
+                	bat 'docker build -t shahzadsastech/jenkins-automation .'
                 }
             }
         }
