@@ -13,7 +13,7 @@ pipeline{
         stage('Build Docker Image') {
             steps {
 				script{                
-                	bat 'docker build -t shahzadsastech/jenkins-automation .'
+                	bat 'docker build -t shahzadsastech/jenkins-automation -f Dockerfile .'
                 }
             }
         }
@@ -24,7 +24,7 @@ pipeline{
 						bat 'docker login --username shahzadsastech --password-stdin ${dockerpwd}'
 					}
 					bat 'docker scan shahzadsastech/jenkins-automation'
-					bat 'docker push shahzadsastech-jenkins-automation'
+					bat 'docker push shahzadsastech/jenkins-automation'
                 }
             }
         }
